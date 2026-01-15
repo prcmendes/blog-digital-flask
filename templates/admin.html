@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>🧑‍💼 Painel do Administrador</h2>
+
+<p><a href="{{ url_for('logout') }}">Sair</a></p>
+
+<table border="1" width="100%">
+    <tr>
+        <th>ID</th>
+        <th>Produto</th>
+        <th>Preço</th>
+        <th>Ações</th>
+    </tr>
+    {% for product in products %}
+    <tr>
+        <td>{{ product[0] }}</td>
+        <td>{{ product[1] }}</td>
+        <td>R$ {{ '%.2f'|format(product[3]) }}</td>
+        <td>
+            <a href="{{ url_for('delete_product', product_id=product[0]) }}" 
+               onclick="return confirm('Deseja realmente excluir este produto?');">
+               ❌ Excluir
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
