@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>🛍️ Produtos Disponíveis</h2>
+<ul class="product-list">
+    {% for product in products %}
+        <li class="product-card">
+            <h3><a href="{{ url_for('product_detail', product_id=product[0]) }}">{{ product[1] }}</a></h3>
+            <p>{{ product[2][:80] }}...</p>
+            <span class="price">💲 R$ {{ '%.2f'|format(product[3]) }}</span>
+        </li>
+    {% else %}
+        <p>Nenhum produto cadastrado ainda. <a href="{{ url_for('add_product') }}">Adicione o primeiro!</a></p>
+    {% endfor %}
+</ul>
+{% endblock %}

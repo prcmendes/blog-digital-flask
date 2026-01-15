@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>➕ Adicionar Produto Digital</h2>
+<form method="POST" class="form-container">
+    <label>Nome do Produto:</label>
+    <input type="text" name="name" required>
+
+    <label>Descrição:</label>
+    <textarea name="description" rows="4" required></textarea>
+
+    <label>Preço (R$):</label>
+    <input type="number" step="0.01" name="price" required>
+
+    <label>Link de Download:</label>
+    <input type="url" name="download_link" required>
+
+    <button type="submit">Salvar Produto</button>
+</form>
+{% endblock %}

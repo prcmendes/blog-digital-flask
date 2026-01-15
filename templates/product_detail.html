@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="product-detail">
+    <h2>{{ product[1] }}</h2>
+    <p>{{ product[2] }}</p>
+    <p><strong>💰 Preço:</strong> R$ {{ '%.2f'|format(product[3]) }}</p>
+    <a class="download-btn" href="{{ product[4] }}" target="_blank">⬇️ Baixar Produto</a>
+    <br><br>
+    <a href="{{ url_for('index') }}">← Voltar para a lista</a>
+</div>
+{% endblock %}

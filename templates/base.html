@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog de Produtos Digitais</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Blog de Produtos Digitais</h1>
+        <nav>
+            <a href="{{ url_for('index') }}">🏠 Início</a> |
+            <a href="{{ url_for('add_product') }}">➕ Adicionar Produto</a>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <p>© 2026 - Blog de Produtos Digitais | Criado com Flask e SQLite</p>
+    </footer>
+</body>
+</html>
