@@ -62,7 +62,13 @@ def product_detail(product_id):
     cursor.execute("SELECT * FROM products WHERE id=?", (product_id,))
     product = cursor.fetchone()
     conn.close()
+
+    if not product:
+        # Produto não encontrado → redireciona para a home com aviso
+        return render_template('error.html', message="Produto não encontrado.")
+
     return render_template('product_detail.html', product=product)
+
 
 # ------------------- ÁREA RESTRITA -------------------
 
